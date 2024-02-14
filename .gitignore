@@ -4,9 +4,9 @@
 
 /ElsaWorkflowTest/.vs
 /ElsaWorkflowTest/obj
-/ElsaStudioBlazorWasm/bin/Debug/net8.0
+/ElsaStudioBlazorWasm/bin
 /ElsaStudioBlazorWasm/obj
 /ElsaStudioBlazorWasm/ElsaStudioBlazorWasm.csproj.user
-/ElsaWorkflowTest/bin/Debug/net8.0
-/Server/bin/Debug/net8.0
+/ElsaWorkflowTest/bin/
+/Server/bin/
 /Server/obj

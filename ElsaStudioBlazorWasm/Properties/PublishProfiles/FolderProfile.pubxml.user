@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>E:\repo\elsa_test\ElsaStudioBlazorWasm\bin\Debug\net8.0\browser-wasm\publish\</_PublishTargetUrl>
+    <History>True|2024-02-14T14:17:24.6502552Z;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+</Project>
