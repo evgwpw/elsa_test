@@ -1,0 +1,13 @@
+# For more info on HTTP files go to https://aka.ms/vs/httpfile
+POST http://localhost:5001/workflows/documents2 HTTP/1.1
+Host: localhost:5001
+Content-Type: application/json
+
+{
+	"Id": "3",
+	"Author": {
+		"Name": "John",
+		"Email": "john@gmail.com"
+	},
+	"Body": "This is sample document."
+}

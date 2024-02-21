@@ -4,11 +4,18 @@ using Elsa.Extensions;
 using Elsa.Persistence.EntityFramework.SqlServer;
 using Elsa.EntityFrameworkCore.Extensions;
 using System.Reflection;
+using Elsa.Workflows;
+using Activitys;
+using Elsa.Workflows.Contracts;
+using Elsa.Workflows.Features;
 
+
+MyWorkflow myWorkflow = new MyWorkflow();
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 var connectionString = configuration.GetConnectionString("SqlServer")!;
 var contextType = typeof(Elsa.Persistence.EntityFramework.Core.ElsaContext);
+//WorkflowsFeature workflowsFeature = null;
 //private static Assembly Assembly => typeof(SqlServerProvidersExtensions).Assembly;
 builder.Services.AddElsa(elsa =>
 {
@@ -49,6 +56,8 @@ builder.Services.AddElsa(elsa =>
 
     // Enable C# workflow expressions
     elsa.UseCSharp();
+    elsa.UseJavaScript();
+    elsa.UseLiquid();
 
     // Enable HTTP activities.
     elsa.UseHttp();
@@ -58,9 +67,19 @@ builder.Services.AddElsa(elsa =>
 
     // Register custom activities from the application, if any.
     elsa.AddActivitiesFrom<Program>();
+    elsa.AddActivitiesFrom<Elsa.Email.Activities.SendEmail>();
 
     // Register custom workflows from the application, if any.
     elsa.AddWorkflowsFrom<Program>();
+    elsa.AddActivitiesFrom<MyActivity>();
+    elsa.AddWorkflowsFrom<MyWorkflow>();
+    //elsa.UseWorkflowManagement(m => 
+    //{
+    //    m.AddVariableType<Activitys.Request>(category: "MyCategory");
+    //});
+
+    //workflowsFeature = new WorkflowsFeature(elsa);
+    //workflowsFeature.Apply();
 });
 // Configure CORS to allow designer app hosted on a different origin to invoke the APIs.
 builder.Services.AddCors(cors => cors
@@ -74,65 +93,49 @@ builder.Services.AddCors(cors => cors
 builder.Services.AddHealthChecks();
 builder.Services.AddMvcCore();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(config =>
-{
-    //some swagger configuration code.
 
-    //use fully qualified object names
-    config.CustomSchemaIds(x => x.FullName);
-});
+//builder.Services.AddTransient<IWorkflowBuilder, WorkflowBuilder>();
+//builder.Services.AddSwaggerGen(config =>
+//{
+//    //some swagger configuration code.
+
+//    //use fully qualified object names
+//    config.CustomSchemaIds(x => x.FullName);
+//});
 
 // Build the web application.
 var app = builder.Build();
 
 // Configure web application's middleware pipeline.
 
-app.UseSwagger();
-app.UseSwaggerUI(options =>
-{
-    options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
-    options.RoutePrefix = string.Empty;
-});
+//app.UseSwagger();
+//app.UseSwaggerUI(options =>
+//{
+//    options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+//    options.RoutePrefix = string.Empty;
+//});
+
+app.UseHttpsRedirection();
+app.UseBlazorFrameworkFiles();
+app.MapHealthChecks("/health");
+app.UseRouting();
 app.UseCors();
-app.UseRouting(); // Required for SignalR.
+app.UseStaticFiles();
 app.UseAuthentication();
 app.UseAuthorization();
-app.UseWorkflowsApi(); // Use Elsa API endpoints.
-app.UseWorkflows(); // Use Elsa middleware to handle HTTP requests mapped to HTTP Endpoint activities.
-app.UseWorkflowsSignalRHubs(); // Optional SignalR integration. Elsa Studio uses SignalR to receive real-time updates from the server. 
-
-
-app.UseBlazorFrameworkFiles();
-app.UseStaticFiles();
+app.UseWorkflowsApi();
+app.UseWorkflows();
+app.UseWorkflowsSignalRHubs();
 app.MapFallbackToFile("index.html");
+
+
+//IWorkflowBuilder workflowBuilder = workflowsFeature.   .GetService<IWorkflowBuilder>();
+
+//var ss = workflowBuilder.BuildWorkflowAsync(myWorkflow);
+//var ser = app.Services.GetService<IActivitySerializer>();
+
+//var data = ser.Serialize(ss);
 
 app.Run();
 
 
-
-
-//var builder = WebApplication.CreateBuilder(args);
-
-//// Add services to the container.
-
-//builder.Services.AddControllers();
-//// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-//builder.Services.AddEndpointsApiExplorer();
-//builder.Services.AddSwaggerGen();
-
-//var app = builder.Build();
-
-//// Configure the HTTP request pipeline.
-//if (app.Environment.IsDevelopment())
-//{
-//    app.UseSwagger();
-//    app.UseSwaggerUI();
-//}
-
-//app.UseHttpsRedirection();
-
-//app.UseAuthorization();
-
-//app.MapControllers();
-
-//app.Run();
