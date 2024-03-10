@@ -8,6 +8,7 @@ using Elsa.Workflows;
 using Activitys;
 using Elsa.Workflows.Contracts;
 using Elsa.Workflows.Features;
+using Activitys.Requests;
 
 
 MyWorkflow myWorkflow = new MyWorkflow();
@@ -27,7 +28,8 @@ builder.Services.AddElsa(elsa =>
         {
             ob.UseSqlServer(connectionString, contextType);
         };
-    }));
+    }).AddVariableType<Step>("Request")
+    );
 
     // Configure Runtime layer to use EF Core.
     elsa.UseWorkflowRuntime(runtime => runtime.UseEntityFrameworkCore(ef => 
@@ -73,6 +75,7 @@ builder.Services.AddElsa(elsa =>
     elsa.AddWorkflowsFrom<Program>();
     elsa.AddActivitiesFrom<MyActivity>();
     elsa.AddWorkflowsFrom<MyWorkflow>();
+    
     //elsa.UseWorkflowManagement(m => 
     //{
     //    m.AddVariableType<Activitys.Request>(category: "MyCategory");

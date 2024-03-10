@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElsaStudioBlazorWasm", "..\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Activitys", "..\Activitys\Activitys.csproj", "{DD190E13-6453-4377-BFDE-B6B2740BCA53}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTest", "ConsoleTest\ConsoleTest.csproj", "{2E3DFFAE-45B6-49BB-AFC1-80AC949EDCEE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{DD190E13-6453-4377-BFDE-B6B2740BCA53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD190E13-6453-4377-BFDE-B6B2740BCA53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD190E13-6453-4377-BFDE-B6B2740BCA53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E3DFFAE-45B6-49BB-AFC1-80AC949EDCEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E3DFFAE-45B6-49BB-AFC1-80AC949EDCEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E3DFFAE-45B6-49BB-AFC1-80AC949EDCEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E3DFFAE-45B6-49BB-AFC1-80AC949EDCEE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

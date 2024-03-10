@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Activitys
+namespace Activitys.Requests
 {
     public class Request
     {
