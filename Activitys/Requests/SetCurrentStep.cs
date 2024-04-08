@@ -10,12 +10,15 @@ using System.Threading.Tasks;
 
 namespace Activitys.Requests
 {
-    public class SetCurrentStep : CodeActivity<Step>
+    public class SetCurrentStep : CodeActivity
     {
         public Input<ICollection<Step>> steps = default!;
-        public SetCurrentStep(Variable<ICollection<Step>> step)
+        public Output<Step> output = default!;
+        public SetCurrentStep(Variable<ICollection<Step>> step, Variable<Step> variable)
         {
             steps = new Input<ICollection<Step>>(step);
+            output = new Output<Step>(variable);
+           // Result = new Output<Step>();
         }
         protected override void Execute(ActivityExecutionContext context)
         {
@@ -26,7 +29,8 @@ namespace Activitys.Requests
             {
                 s.SendDate = DateTime.Now;
             }
-            Result.Set(context, s);
+            output.Set(context, s);
+           // Result.Set(context, s);
         }
     }
 }

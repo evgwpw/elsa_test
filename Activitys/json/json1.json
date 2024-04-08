@@ -1,0 +1,140 @@
+{
+  "$id": "1",
+  "id": "d8227f3f436b9476",
+  "definitionId": "a96a0b059fdbfba0",
+  "definitionVersionId": "edc490f9f9b5b15d",
+  "definitionVersion": 1,
+  "status": "Finished",
+  "subStatus": "Finished",
+  "bookmarks": {
+    "$id": "2",
+    "$values": []
+  },
+  "incidents": {
+    "$id": "3",
+    "$values": []
+  },
+  "completionCallbacks": {
+    "$id": "4",
+    "$values": []
+  },
+  "activityExecutionContexts": {
+    "$id": "5",
+    "$values": [
+      {
+        "$id": "6",
+        "id": "2be36508f13bfb61",
+        "parentContextId": "21c149016077e7c3",
+        "scheduledActivityNodeId": "Workflow1:8ac0196b3de343d4:1f032db6d75a63cb",
+        "ownerActivityNodeId": "Workflow1:8ac0196b3de343d4",
+        "properties": { "$id": "7" },
+        "activityState": {
+          "$id": "8",
+          "StatusCode": "ok",
+          "Content": "\u041F\u0440\u0438\u0432\u0435\u0442 \u043C\u0438\u0440",
+          "ContentType": "text/plain",
+          "ResponseHeaders": {}
+        },
+        "dynamicVariables": {
+          "$id": "9",
+          "$values": []
+        },
+        "status": "Completed",
+        "startedAt": "2024-02-15T14:29:58.9375676+00:00",
+        "completedAt": "2024-02-15T14:29:58.9388701+00:00"
+      },
+      {
+        "$id": "10",
+        "id": "dc6bab2242acaf01",
+        "parentContextId": "21c149016077e7c3",
+        "scheduledActivityNodeId": "Workflow1:8ac0196b3de343d4:580c44e672c4cd0d",
+        "ownerActivityNodeId": "Workflow1:8ac0196b3de343d4",
+        "properties": { "$id": "11" },
+        "activityState": {
+          "$id": "12",
+          "Path": "hello-world",
+          "SupportedMethods": [ "GET" ],
+          "Authorize": false,
+          "Policy": null,
+          "RequestTimeout": null,
+          "RequestSizeLimit": null,
+          "FileSizeLimit": null,
+          "AllowedFileExtensions": null,
+          "BlockedFileExtensions": null,
+          "AllowedMimeTypes": null,
+          "ExposeRequestTooLargeOutcome": false,
+          "ExposeFileTooLargeOutcome": false,
+          "ExposeInvalidFileExtensionOutcome": false,
+          "ExposeInvalidFileMimeTypeOutcome": false
+        },
+        "dynamicVariables": {
+          "$id": "13",
+          "$values": []
+        },
+        "status": "Completed",
+        "startedAt": "2024-02-15T14:29:58.9345521+00:00",
+        "completedAt": "2024-02-15T14:29:58.9375485+00:00"
+      },
+      {
+        "$id": "14",
+        "id": "21c149016077e7c3",
+        "parentContextId": "14b726979c6637fb",
+        "scheduledActivityNodeId": "Workflow1:8ac0196b3de343d4",
+        "ownerActivityNodeId": "Workflow1",
+        "properties": {
+          "$id": "15",
+          "Scope": {
+            "$id": "16",
+            "activities": {
+              "$id": "17",
+              "580c44e672c4cd0d": {
+                "$id": "18",
+                "activityId": "580c44e672c4cd0d",
+                "executionCount": 1
+              },
+              "1f032db6d75a63cb": {
+                "$id": "19",
+                "activityId": "1f032db6d75a63cb",
+                "executionCount": 1
+              }
+            },
+            "_type": "Elsa.Workflows.Activities.Flowchart.Models.FlowScope, Elsa.Workflows.Core"
+          }
+        },
+        "activityState": { "$id": "20" },
+        "dynamicVariables": {
+          "$id": "21",
+          "$values": []
+        },
+        "status": "Completed",
+        "startedAt": "2024-02-15T14:29:58.9344955+00:00",
+        "completedAt": "2024-02-15T14:29:58.9388634+00:00"
+      },
+      {
+        "$id": "22",
+        "id": "14b726979c6637fb",
+        "scheduledActivityNodeId": "Workflow1",
+        "properties": { "$id": "23" },
+        "activityState": { "$id": "24" },
+        "dynamicVariables": {
+          "$id": "25",
+          "$values": []
+        },
+        "status": "Completed",
+        "startedAt": "2024-02-15T14:29:58.9344111+00:00",
+        "completedAt": "2024-02-15T14:29:58.9388574+00:00"
+      }
+    ]
+  },
+  "scheduledActivities": {
+    "$id": "26",
+    "$values": []
+  },
+  "executionLogSequence": 8,
+  "input": { "$id": "27" },
+  "output": { "$id": "28" },
+  "properties": { "$id": "29" },
+  "createdAt": "2024-02-15T14:29:58.9341306+00:00",
+  "updatedAt": "2024-02-15T14:29:58.9988497+00:00",
+  "finishedAt": "2024-02-15T14:29:58.9988497+00:00"
+}

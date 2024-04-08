@@ -3,6 +3,7 @@ using Elsa.Expressions.Models;
 using Elsa.Extensions;
 using Elsa.Workflows;
 using Elsa.Workflows.Activities;
+using Elsa.Workflows.Contracts;
 using Elsa.Workflows.Memory;
 using System;
 using System.Collections.Generic;
@@ -13,35 +14,51 @@ using System.Threading.Tasks;
 
 namespace Activitys.Requests
 {
-    public class Workl : Sequence
+    public class Workl : WorkflowBase
     {
         private Variable<Step> step = new Variable<Step>();
         private Variable<ICollection<Step>> steps = new Variable<ICollection<Step>>();
         private SetCurrentStep setCurrent = default!;
         private Sequence Body = default!;
-        public Workl()
+        protected override void Build(IWorkflowBuilder builder)
         {
-            Body = new Sequence()
+            var sts = builder.WithVariable(steps);
+            builder.WithVariable(step);
+            //Body = new Sequence() 
+            //{
+            //    Activities = 
+            //    {
+            //        new OneStep(step),
+            //        setCurrent
+            //    }
+            //};
+            builder.Root = new Sequence()
             {
-                Variables = [step, steps],
                 Activities = 
-                [
-                    new OneStep(step),
-                    setCurrent
-                ]
+                {
+                    new SetCurrentStep(steps, step),
+                    new While(ctx => Condition(ctx), new Sequence
+                    {
+                        Activities = 
+                        {
+                            new OneStep(step),
+                            new SetCurrentStep(steps, step)
+                        }
+                    })
+                }
+            
             };
-            setCurrent = new SetCurrentStep(steps);
-            Variables = [step, steps];
-            Activities =
-            [
-                setCurrent,
-                new While(Condition, Body)
-            ];
+            
+        }
+        public Workl(ICollection<Step> stepsArg)
+        {
+            steps = new Variable<ICollection<Step>>(stepsArg);
         }
         private bool Condition(ExpressionExecutionContext context)
         {
-            var res = setCurrent.GetResult<Step>(context);
-            step = new Variable<Step>(res);
+            var res = step.Get(context);// GetResult<Step>(context);
+            //step = new Variable<Step>(res);
+           // step.Value = res;
             return res != null;
         }
     }
