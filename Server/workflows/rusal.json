@@ -1,0 +1,643 @@
+{
+    "id": "79c13fd80d4e9d8a",
+    "definitionId": "c9c16f62e6b724ca",
+    "name": "Rusal",
+    "createdAt": "2024-04-24T14:51:24.5783584+00:00",
+    "version": 4,
+    "toolVersion": "3.1.0.0",
+    "variables": [
+        {
+            "id": "6cc8501623c98261",
+            "name": "Steps",
+            "typeName": "Activitys.Requests.Step, Activitys",
+            "isArray": true,
+            "storageDriverTypeName": "Elsa.Workflows.Services.WorkflowStorageDriver, Elsa.Workflows.Core"
+        }
+    ],
+    "inputs": [
+        {
+            "uiHint": "json-editor",
+            "storageDriverType": "Elsa.Workflows.Services.WorkflowStorageDriver, Elsa.Workflows.Core",
+            "type": "System.Collections.Generic.ICollection\u00601[[System.Collections.Generic.ICollection\u00601[[System.Collections.Generic.ICollection\u00601[[System.Collections.Generic.ICollection\u00601[[System.Collections.Generic.ICollection\u00601[[System.Collections.Generic.ICollection\u00601[[System.Collections.Generic.ICollection\u00601[[Activitys.Requests.Step, Activitys]], System.Private.CoreLib]], System.Private.CoreLib]], System.Private.CoreLib]], System.Private.CoreLib]], System.Private.CoreLib]], System.Private.CoreLib]], System.Private.CoreLib",
+            "name": "Steps",
+            "displayName": "Input 1",
+            "category": "Request",
+            "isArray": true
+        }
+    ],
+    "outputs": [],
+    "outcomes": [],
+    "customProperties": {},
+    "isReadonly": false,
+    "isSystem": false,
+    "isLatest": true,
+    "isPublished": true,
+    "options": {
+        "autoUpdateConsumingWorkflows": false
+    },
+    "root": {
+        "type": "Elsa.Flowchart",
+        "version": 1,
+        "id": "71a900182a2de984",
+        "nodeId": "Workflow1:71a900182a2de984",
+        "metadata": {},
+        "customProperties": {
+            "source": "FlowchartJsonConverter.cs:45",
+            "notFoundConnections": [],
+            "canStartWorkflow": false,
+            "runAsynchronously": false
+        },
+        "activities": [
+            {
+                "mode": {
+                    "typeName": "Elsa.Workflows.Activities.Flowchart.Models.FlowJoinMode, Elsa.Workflows.Core",
+                    "expression": {
+                        "type": "Literal",
+                        "value": "WaitAny"
+                    }
+                },
+                "id": "fd3addddd85e101a",
+                "nodeId": "Workflow1:71a900182a2de984:fd3addddd85e101a",
+                "name": "FlowJoin1",
+                "type": "Elsa.FlowJoin",
+                "version": 1,
+                "customProperties": {
+                    "canStartWorkflow": false,
+                    "runAsynchronously": false
+                },
+                "metadata": {
+                    "designer": {
+                        "position": {
+                            "x": 90.12876892089844,
+                            "y": 790.926513671875
+                        },
+                        "size": {
+                            "width": 98.265625,
+                            "height": 50
+                        }
+                    }
+                }
+            },
+            {
+                "id": "5fd2acfabadba6a6",
+                "nodeId": "Workflow1:71a900182a2de984:5fd2acfabadba6a6",
+                "name": "Transfer1",
+                "type": "Activitys.Transfer",
+                "version": 1,
+                "customProperties": {
+                    "canStartWorkflow": false,
+                    "runAsynchronously": false
+                },
+                "metadata": {
+                    "designer": {
+                        "position": {
+                            "x": 300,
+                            "y": 1040
+                        },
+                        "size": {
+                            "width": 91.3125,
+                            "height": 50
+                        }
+                    }
+                }
+            },
+            {
+                "person": {
+                    "typeName": "String",
+                    "expression": {
+                        "type": "Literal",
+                        "value": "Согласующий 1"
+                    }
+                },
+                "id": "c047f776155801ad",
+                "nodeId": "Workflow1:71a900182a2de984:c047f776155801ad",
+                "name": "Approve1",
+                "type": "Activitys.Approve",
+                "version": 1,
+                "customProperties": {
+                    "runAsynchronously": true,
+                    "canStartWorkflow": false
+                },
+                "metadata": {
+                    "designer": {
+                        "position": {
+                            "x": -426.4426574707031,
+                            "y": 154.45028686523438
+                        },
+                        "size": {
+                            "width": 90.84375,
+                            "height": 50
+                        }
+                    }
+                }
+            },
+            {
+                "person": {
+                    "typeName": "String",
+                    "expression": {
+                        "type": "Literal",
+                        "value": "Согласующий 3"
+                    }
+                },
+                "id": "25bbb9f72ce31df3",
+                "nodeId": "Workflow1:71a900182a2de984:25bbb9f72ce31df3",
+                "name": "Approve3",
+                "type": "Activitys.Approve",
+                "version": 1,
+                "customProperties": {
+                    "canStartWorkflow": false,
+                    "runAsynchronously": false
+                },
+                "metadata": {
+                    "designer": {
+                        "position": {
+                            "x": -391.2998046875,
+                            "y": 295.2121887207031
+                        },
+                        "size": {
+                            "width": 90.84375,
+                            "height": 50
+                        }
+                    }
+                }
+            },
+            {
+                "person": {
+                    "typeName": "String",
+                    "expression": {
+                        "type": "Literal",
+                        "value": "Согласующий 2"
+                    }
+                },
+                "id": "fe7571f290385b7f",
+                "nodeId": "Workflow1:71a900182a2de984:fe7571f290385b7f",
+                "name": "Approve2",
+                "type": "Activitys.Approve",
+                "version": 1,
+                "customProperties": {
+                    "canStartWorkflow": false,
+                    "runAsynchronously": false
+                },
+                "metadata": {
+                    "designer": {
+                        "position": {
+                            "x": -258.4426574707031,
+                            "y": 154.45028686523438
+                        },
+                        "size": {
+                            "width": 90.84375,
+                            "height": 50
+                        }
+                    }
+                }
+            },
+            {
+                "person": {
+                    "typeName": "String",
+                    "expression": {
+                        "type": "Literal",
+                        "value": "Согласующий 4"
+                    }
+                },
+                "id": "55ee2257a8e86838",
+                "nodeId": "Workflow1:71a900182a2de984:55ee2257a8e86838",
+                "name": "Approve4",
+                "type": "Activitys.Approve",
+                "version": 1,
+                "customProperties": {
+                    "canStartWorkflow": false,
+                    "runAsynchronously": false
+                },
+                "metadata": {
+                    "designer": {
+                        "position": {
+                            "x": -45.000694274902344,
+                            "y": 295.2121887207031
+                        },
+                        "size": {
+                            "width": 90.84375,
+                            "height": 50
+                        }
+                    }
+                }
+            },
+            {
+                "person": {
+                    "typeName": "String",
+                    "expression": {
+                        "type": "Literal",
+                        "value": "Согласующий 5"
+                    }
+                },
+                "id": "a4ea84360d300dfc",
+                "nodeId": "Workflow1:71a900182a2de984:a4ea84360d300dfc",
+                "name": "Approve5",
+                "type": "Activitys.Approve",
+                "version": 1,
+                "customProperties": {
+                    "canStartWorkflow": false,
+                    "runAsynchronously": false
+                },
+                "metadata": {
+                    "designer": {
+                        "position": {
+                            "x": -80,
+                            "y": 360
+                        },
+                        "size": {
+                            "width": 90.84375,
+                            "height": 50
+                        }
+                    }
+                }
+            },
+            {
+                "person": {
+                    "typeName": "String",
+                    "expression": {
+                        "type": "Literal",
+                        "value": "Согласующий 6"
+                    }
+                },
+                "id": "52bd6bc98a0d045e",
+                "nodeId": "Workflow1:71a900182a2de984:52bd6bc98a0d045e",
+                "name": "Approve6",
+                "type": "Activitys.Approve",
+                "version": 1,
+                "customProperties": {
+                    "canStartWorkflow": false,
+                    "runAsynchronously": false
+                },
+                "metadata": {
+                    "designer": {
+                        "position": {
+                            "x": -125.00069427490234,
+                            "y": 430.926513671875
+                        },
+                        "size": {
+                            "width": 90.84375,
+                            "height": 50
+                        }
+                    }
+                }
+            },
+            {
+                "person": {
+                    "typeName": "String",
+                    "expression": {
+                        "type": "Literal",
+                        "value": "Согласующий 11"
+                    }
+                },
+                "id": "df1845917f0394d2",
+                "nodeId": "Workflow1:71a900182a2de984:df1845917f0394d2",
+                "name": "Approve11",
+                "type": "Activitys.Approve",
+                "version": 1,
+                "customProperties": {
+                    "canStartWorkflow": false,
+                    "runAsynchronously": false
+                },
+                "metadata": {
+                    "designer": {
+                        "position": {
+                            "x": 150.12876892089844,
+                            "y": 963.7836303710938
+                        },
+                        "size": {
+                            "width": 90.84375,
+                            "height": 50
+                        }
+                    }
+                }
+            },
+            {
+                "activityName": {
+                    "typeName": "String",
+                    "expression": {
+                        "type": "Literal",
+                        "value": "AdditionalApprove1"
+                    }
+                },
+                "approveName": {
+                    "typeName": "String",
+                    "expression": {
+                        "type": "Literal",
+                        "value": "Approve1"
+                    }
+                },
+                "rejectName": {
+                    "typeName": "String",
+                    "expression": {
+                        "type": "Literal",
+                        "value": "Reject1"
+                    }
+                },
+                "result": null,
+                "id": "c884a2371cdaff9d",
+                "nodeId": "Workflow1:71a900182a2de984:c884a2371cdaff9d",
+                "name": "AdditionalApprove1",
+                "type": "Activitys.AdditionalApprove",
+                "version": 1,
+                "customProperties": {
+                    "canStartWorkflow": false,
+                    "runAsynchronously": false
+                },
+                "metadata": {
+                    "designer": {
+                        "position": {
+                            "x": -240,
+                            "y": 600
+                        },
+                        "size": {
+                            "width": 168.46875,
+                            "height": 50
+                        }
+                    }
+                }
+            },
+            {
+                "person": {
+                    "typeName": "String",
+                    "expression": {
+                        "type": "Literal",
+                        "value": "Согласующий 7"
+                    }
+                },
+                "id": "7ac7c12686b14fe9",
+                "nodeId": "Workflow1:71a900182a2de984:7ac7c12686b14fe9",
+                "name": "Approve7",
+                "type": "Activitys.Approve",
+                "version": 1,
+                "customProperties": {
+                    "canStartWorkflow": false,
+                    "runAsynchronously": false
+                },
+                "metadata": {
+                    "designer": {
+                        "position": {
+                            "x": 278.7001953125,
+                            "y": 410
+                        },
+                        "size": {
+                            "width": 90.84375,
+                            "height": 50
+                        }
+                    }
+                }
+            },
+            {
+                "activityName": {
+                    "typeName": "String",
+                    "expression": {
+                        "type": "Literal",
+                        "value": "AdditionalApprove2"
+                    }
+                },
+                "approveName": {
+                    "typeName": "String",
+                    "expression": {
+                        "type": "Literal",
+                        "value": "Approve2"
+                    }
+                },
+                "rejectName": {
+                    "typeName": "String",
+                    "expression": {
+                        "type": "Literal",
+                        "value": "Reject2"
+                    }
+                },
+                "result": null,
+                "id": "116601a34604d4ed",
+                "nodeId": "Workflow1:71a900182a2de984:116601a34604d4ed",
+                "name": "AdditionalApprove2",
+                "type": "Activitys.AdditionalApprove",
+                "version": 1,
+                "customProperties": {
+                    "canStartWorkflow": false,
+                    "runAsynchronously": false
+                },
+                "metadata": {
+                    "designer": {
+                        "position": {
+                            "x": 10.84375,
+                            "y": 518.7965698242188
+                        },
+                        "size": {
+                            "width": 168.46875,
+                            "height": 50
+                        }
+                    }
+                }
+            },
+            {
+                "activityName": {
+                    "typeName": "String",
+                    "expression": {
+                        "type": "Literal",
+                        "value": "AdditionalApprove3"
+                    }
+                },
+                "approveName": {
+                    "typeName": "String",
+                    "expression": {
+                        "type": "Literal",
+                        "value": "Approve3"
+                    }
+                },
+                "rejectName": {
+                    "typeName": "String",
+                    "expression": {
+                        "type": "Literal",
+                        "value": "Reject3"
+                    }
+                },
+                "result": null,
+                "id": "838e647d9927c834",
+                "nodeId": "Workflow1:71a900182a2de984:838e647d9927c834",
+                "name": "AdditionalApprove3",
+                "type": "Activitys.AdditionalApprove",
+                "version": 1,
+                "customProperties": {
+                    "canStartWorkflow": false,
+                    "runAsynchronously": false
+                },
+                "metadata": {
+                    "designer": {
+                        "position": {
+                            "x": 260.00634765625,
+                            "y": 690.7965698242188
+                        },
+                        "size": {
+                            "width": 168.46875,
+                            "height": 50
+                        }
+                    }
+                }
+            }
+        ],
+        "connections": [
+            {
+                "source": {
+                    "activity": "7ac7c12686b14fe9",
+                    "port": "Done"
+                },
+                "target": {
+                    "activity": "c884a2371cdaff9d",
+                    "port": "In"
+                }
+            },
+            {
+                "source": {
+                    "activity": "c884a2371cdaff9d",
+                    "port": "Done"
+                },
+                "target": {
+                    "activity": "fd3addddd85e101a",
+                    "port": "In"
+                }
+            },
+            {
+                "source": {
+                    "activity": "7ac7c12686b14fe9",
+                    "port": "Done"
+                },
+                "target": {
+                    "activity": "116601a34604d4ed",
+                    "port": "In"
+                }
+            },
+            {
+                "source": {
+                    "activity": "116601a34604d4ed",
+                    "port": "Done"
+                },
+                "target": {
+                    "activity": "fd3addddd85e101a",
+                    "port": "In"
+                }
+            },
+            {
+                "source": {
+                    "activity": "7ac7c12686b14fe9",
+                    "port": "Done"
+                },
+                "target": {
+                    "activity": "838e647d9927c834",
+                    "port": "In"
+                }
+            },
+            {
+                "source": {
+                    "activity": "838e647d9927c834",
+                    "port": "Done"
+                },
+                "target": {
+                    "activity": "fd3addddd85e101a",
+                    "port": "In"
+                }
+            },
+            {
+                "source": {
+                    "activity": "c047f776155801ad",
+                    "port": "Done"
+                },
+                "target": {
+                    "activity": "fe7571f290385b7f",
+                    "port": "In"
+                }
+            },
+            {
+                "source": {
+                    "activity": "fe7571f290385b7f",
+                    "port": "Done"
+                },
+                "target": {
+                    "activity": "25bbb9f72ce31df3",
+                    "port": "In"
+                }
+            },
+            {
+                "source": {
+                    "activity": "25bbb9f72ce31df3",
+                    "port": "Done"
+                },
+                "target": {
+                    "activity": "55ee2257a8e86838",
+                    "port": "In"
+                }
+            },
+            {
+                "source": {
+                    "activity": "25bbb9f72ce31df3",
+                    "port": "Done"
+                },
+                "target": {
+                    "activity": "a4ea84360d300dfc",
+                    "port": "In"
+                }
+            },
+            {
+                "source": {
+                    "activity": "25bbb9f72ce31df3",
+                    "port": "Done"
+                },
+                "target": {
+                    "activity": "52bd6bc98a0d045e",
+                    "port": "In"
+                }
+            },
+            {
+                "source": {
+                    "activity": "55ee2257a8e86838",
+                    "port": "Done"
+                },
+                "target": {
+                    "activity": "7ac7c12686b14fe9",
+                    "port": "In"
+                }
+            },
+            {
+                "source": {
+                    "activity": "a4ea84360d300dfc",
+                    "port": "Done"
+                },
+                "target": {
+                    "activity": "7ac7c12686b14fe9",
+                    "port": "In"
+                }
+            },
+            {
+                "source": {
+                    "activity": "52bd6bc98a0d045e",
+                    "port": "Done"
+                },
+                "target": {
+                    "activity": "7ac7c12686b14fe9",
+                    "port": "In"
+                }
+            },
+            {
+                "source": {
+                    "activity": "fd3addddd85e101a",
+                    "port": "Done"
+                },
+                "target": {
+                    "activity": "df1845917f0394d2",
+                    "port": "In"
+                }
+            },
+            {
+                "source": {
+                    "activity": "df1845917f0394d2",
+                    "port": "Done"
+                },
+                "target": {
+                    "activity": "5fd2acfabadba6a6",
+                    "port": "In"
+                }
+            }
+        ]
+    }
+}

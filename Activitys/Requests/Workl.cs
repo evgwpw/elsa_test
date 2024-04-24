@@ -5,6 +5,7 @@ using Elsa.Workflows;
 using Elsa.Workflows.Activities;
 using Elsa.Workflows.Contracts;
 using Elsa.Workflows.Memory;
+using Elsa.Workflows.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace Activitys.Requests
         private Variable<ICollection<Step>> steps = new Variable<ICollection<Step>>();
         private SetCurrentStep setCurrent = default!;
         private Sequence Body = default!;
+        public Input<ICollection<Step>> Steps { get; set; } = default!;
         protected override void Build(IWorkflowBuilder builder)
         {
             var sts = builder.WithVariable(steps);
@@ -36,6 +38,7 @@ namespace Activitys.Requests
             {
                 Activities = 
                 {
+                    new SetVariable<ICollection<Step>>(steps,Steps),
                     new SetCurrentStep(steps, step),
                     new While(ctx => Condition(ctx), new Sequence
                     {
@@ -50,9 +53,12 @@ namespace Activitys.Requests
             };
             
         }
-        public Workl(ICollection<Step> stepsArg)
-        {
-            steps = new Variable<ICollection<Step>>(stepsArg);
+        //public Workl(ICollection<Step> stepsArg)
+        //{
+        //    steps = new Variable<ICollection<Step>>(stepsArg);
+        //}
+        public Workl() { 
+        //steps = new Variable<ICollection<Step>>(Steps.Get(this.))
         }
         private bool Condition(ExpressionExecutionContext context)
         {

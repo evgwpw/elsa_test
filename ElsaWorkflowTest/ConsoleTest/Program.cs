@@ -10,8 +10,8 @@ services.AddElsa();
 var serviceProvider = services.BuildServiceProvider();
 var workflowRunner = serviceProvider.GetRequiredService<IWorkflowRunner>();
 
-Workl workl = new Workl(Data.Steps[0]);
-var res = workflowRunner.RunAsync(workl);
+//Workl workl = new Workl(Data.Steps[0]);
+//var res = workflowRunner.RunAsync(workl);
 
 Console.WriteLine("Hello, World!");
 Console.ReadLine();

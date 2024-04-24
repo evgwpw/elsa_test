@@ -7,9 +7,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Elsa.Workflows.Attributes;
 
 namespace Activitys.Requests
 {
+    [Activity("Activitys", "MyFork", "My Fork.", Kind = ActivityKind.Task)]
     public class SetCurrentStep : CodeActivity
     {
         public Input<ICollection<Step>> steps = default!;

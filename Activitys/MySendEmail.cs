@@ -17,6 +17,8 @@ namespace Activitys
     public class MySendEmail: CodeActivity
     {
         public Input<string> Text { get; set; } = default!;
+        public Input<string> ApproveName { get; set; } = default!;
+        public Input<string> RejectName {  get; set; } = default!;
 
         [JsonConstructor]
         public MySendEmail(string? source = default, int? line = default) : base(source, line)
@@ -30,11 +32,14 @@ namespace Activitys
         protected override void Execute(ActivityExecutionContext context)
         {
             var eee = context.ExpressionExecutionContext;
+            var approve = ApproveName.Get(context);
+            var reject = RejectName.Get(context);
+            var text = Text.Get(context);
             ///Передача ссылок во вне
-            var url = GenerateSignalUrl(eee, "Approve");
-            Console.WriteLine($"Approve {url}");
-            url = GenerateSignalUrl(eee, "Reject");
-            Console.WriteLine($"Reject {url}");
+            var url = GenerateSignalUrl(eee, approve);
+            Console.WriteLine($"Approve {text} {url}");
+            url = GenerateSignalUrl(eee, reject);
+            Console.WriteLine($"Reject {text} {url}");
             base.Execute(context);
         }
         private string GenerateSignalUrl(ExpressionExecutionContext context, string signalName)

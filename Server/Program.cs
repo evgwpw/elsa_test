@@ -1,7 +1,6 @@
 using Elsa.EntityFrameworkCore.Modules.Management;
 using Elsa.EntityFrameworkCore.Modules.Runtime;
 using Elsa.Extensions;
-using Elsa.Persistence.EntityFramework.SqlServer;
 using Elsa.EntityFrameworkCore.Extensions;
 using System.Reflection;
 using Elsa.Workflows;
@@ -9,13 +8,17 @@ using Activitys;
 using Elsa.Workflows.Contracts;
 using Elsa.Workflows.Features;
 using Activitys.Requests;
+using Elsa.EntityFrameworkCore.SqlServer;
+//using Microsoft.EntityFrameworkCore;
 
 
 MyWorkflow myWorkflow = new MyWorkflow();
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 var connectionString = configuration.GetConnectionString("SqlServer")!;
-var contextType = typeof(Elsa.Persistence.EntityFramework.Core.ElsaContext);
+var mcontextType = typeof(Elsa.EntityFrameworkCore.Modules.Management.ManagementElsaDbContext);
+var rcontextType = typeof(Elsa.EntityFrameworkCore.Modules.Runtime.RuntimeElsaDbContext);
+var assType = typeof(ManagementDbContextFactory);
 //WorkflowsFeature workflowsFeature = null;
 //private static Assembly Assembly => typeof(SqlServerProvidersExtensions).Assembly;
 builder.Services.AddElsa(elsa =>
@@ -26,7 +29,8 @@ builder.Services.AddElsa(elsa =>
     {
         ef.DbContextOptionsBuilder = (sp, ob) => 
         {
-            ob.UseSqlServer(connectionString, contextType);
+            ob.UseElsaSqlServer(assType.Assembly, connectionString);
+           // ob.UseSqlServer(connectionString, mcontextType);
         };
     }).AddVariableType<Step>("Request")
     );
@@ -36,7 +40,8 @@ builder.Services.AddElsa(elsa =>
     {
         ef.DbContextOptionsBuilder = (sp, ob) =>
         {
-            ob.UseSqlServer(connectionString, contextType);
+            //ob.UseSqlServer(connectionString, rcontextType);
+            ob.UseElsaSqlServer(assType.Assembly, connectionString);
         };
     }));
 
