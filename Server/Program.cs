@@ -77,9 +77,9 @@ builder.Services.AddElsa(elsa =>
     elsa.AddActivitiesFrom<Elsa.Email.Activities.SendEmail>();
 
     // Register custom workflows from the application, if any.
-    elsa.AddWorkflowsFrom<Program>();
+   // elsa.AddWorkflowsFrom<Program>();
     elsa.AddActivitiesFrom<MyActivity>();
-    elsa.AddWorkflowsFrom<MyWorkflow>();
+   // elsa.AddWorkflowsFrom<MyWorkflow>();
     
     //elsa.UseWorkflowManagement(m => 
     //{

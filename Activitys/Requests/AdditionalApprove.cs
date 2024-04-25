@@ -49,7 +49,8 @@ namespace Activitys.Requests
                                 Activities =
                                 {
                                     new Event(c=>RejectName.Get(c)),
-                                    new WriteLine(c=> $"Reject {ActivityName.Get(c)}")
+                                    new WriteLine(c=> $"Reject {ActivityName.Get(c)}"),
+                                    new CancelWorkflow()
                                 }
                             }
                         }
